@@ -26,7 +26,7 @@ function ExpenseItem(props) {
   // in the same way but managed independently by react
 
   const [title, setTitle] = useState(props.title);
-  console.log('ExpenseItem Evaluated by React');
+  // console.log('ExpenseItem Evaluated by React');
 
   const clickHandler = () => {
     // let title = props.title;
