@@ -3,39 +3,11 @@ import { useState } from 'react';
 import './NewExpense.css';
 
 const ExpenseForm = () => {
-
-  // Multiple States approach (preferred) - useState() 
-  //returns an array with 2 elements - the current state snapshot and a 
-  //function to update the state snapshot (setState()) - the function is 
-  //called with the new state snapshot as an argument - the function is called by 
-  //React when the component is rendered - the function is called by React when the 
-  //component is re-rendered - the function is called by React when the component is unmounted
-
-  const [enteredTitle, setEnteredTitle] = useState('');
-  const [enteredAmount, setEnteredAmount] = useState('');
-  const [enteredDate, setEnteredDate] = useState('');
-
-  const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
-  };
-
-  const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
-  };
-
-  const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value);
-  };
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-  // One State approach - useState() returns an array with 2 elements - 
-  // the current state snapshot and a function to update the state snapshot (setState()) - 
-  // the function is called with the new state snapshot as an argument - the function is 
-  // called by React when the component is rendered - the function is called by React when 
-  // the component is re-rendered - the function is called by React when the component is unmounted 
-
+  // One State approach - useState() returns an array with 2 elements -
+  // the current state snapshot and a function to update the state snapshot (setState()) -
+  // the function is called with the new state snapshot as an argument - the function is
+  // called by React when the component is rendered - the function is called by React when
+  // the component is re-rendered - the function is called by React when the component is unmounted
 
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: '',
@@ -69,10 +41,43 @@ const ExpenseForm = () => {
   //     return { ...prevState, enteredDate: event.target.value };
   //   });
 
+  // Multiple States approach (preferred) - useState()
+  //returns an array with 2 elements - the current state snapshot and a
+  //function to update the state snapshot (setState()) - the function is
+  //called with the new state snapshot as an argument - the function is called by
+  //React when the component is rendered - the function is called by React when the
+  //component is re-rendered - the function is called by React when the component is unmounted
+
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
+
+  const titleChangeHandler = (event) => {
+    setEnteredTitle(event.target.value);
+  };
+
+  const amountChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  };
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault(); // prevent the default browser behavior of reloading the page on form submission
+
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
   };
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
