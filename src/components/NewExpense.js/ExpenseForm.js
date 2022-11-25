@@ -2,12 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import './NewExpense.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // One State approach - useState() returns an array with 2 elements -
   // the current state snapshot and a function to update the state snapshot (setState()) -
   // the function is called with the new state snapshot as an argument - the function is
-  // called by React when the component is rendered - the function is called by React when
-  // the component is re-rendered - the function is called by React when the component is unmounted
+  // called by React when the component is rendered - the function is called by React
+  // when the component is unmounted
 
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: '',
@@ -73,7 +73,8 @@ const ExpenseForm = () => {
       date: new Date(enteredDate),
     };
 
-    console.log(expenseData);
+    console.log('Expense Form Data: ', expenseData);
+    props.onSaveExpenseData(expenseData);
 
     setEnteredTitle('');
     setEnteredAmount('');
