@@ -4,15 +4,15 @@ import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
   const selectedYear = props.filteredYear;
-  console.log(
-    'ExpensesFilter, filtered year from the state expenses : ',
-    selectedYear
-  );
+  // console.log(
+  //   'ExpensesFilter, filtered year from the state expenses : ',
+  //   selectedYear
+  // );
   const dropdownChangeHandler = (event) => {
     const selectedYear = event.target.value;
     props.onChangeFilter(selectedYear);
   };
-  console.log(selectedYear);
+  // console.log(selectedYear);
 
   return (
     <div className="expenses-filter">
