@@ -10,16 +10,10 @@ function Expenses(props) {
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
-  console.log('In Expenses: ', filteredYear);
-
-  const expenses = props.expenses;
-  console.log("Props:", props);
+  // console.log('In Expenses: ', filteredYear);
 
   return (
     <div>
-
-
-      
 
       <Card className="expenses">
       <ExpensesFilter filteredYear={filteredYear} onChangeFilter={filterChangeHandler} />
