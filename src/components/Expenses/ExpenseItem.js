@@ -26,19 +26,18 @@ function ExpenseItem(props) {
   // in the same way but managed independently by react
 
   const [title, setTitle] = useState(props.title);
-  // console.log("Props from Expenses: ", props.title);
 
   const clickHandler = () => {
-    // let title = props.title;
+
     setTitle('Updated!');
-    // console.log(title);
+
   };
 
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date}></ExpenseDate>
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
       <button onClick={clickHandler}>Change Title</button>
