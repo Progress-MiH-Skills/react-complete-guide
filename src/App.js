@@ -1,5 +1,5 @@
 import Expenses from './components/Expenses/Expenses';
-import NewExpense from './components/NewExpense.js/NewExpense';
+import NewExpense from './components/NewExpense/NewExpense';
 import { React, useState } from 'react';
 
 function App() {
@@ -33,7 +33,9 @@ function App() {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
+    console.log(dummyExpenses);
   };
+
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />
