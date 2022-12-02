@@ -10,13 +10,16 @@ function Expenses(props) {
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
-  // console.log('In Expenses: ', filteredYear);
-
+  // filter is a built-in array method that takes a function as an argument and returns a new array 
+  // with the elements that pass the test implemented by the provided function 
+  const filteredExpenses = props.expenses.filter((expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  }));
   return (
     <div>
       <Card className="expenses">
         <ExpensesFilter filteredYear={filteredYear} onChangeFilter={filterChangeHandler} />
-        {props.expenses.map((item) => 
+        {filteredExpenses.map((item) => 
           <ExpenseItem 
             key={item.id}
             title={item.title} 
