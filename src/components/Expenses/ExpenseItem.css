@@ -1,10 +1,20 @@
 .expense-item {
-  display: flex;
-  justify-content: space-between;
+  /* position: relative; */
   align-items: center;
   padding: 0.5rem;
-  margin: 1rem 0;
+  margin: 5px 0;
   background-color: #4b4b4b;
+}
+
+.expense-item__inner {
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  /* position: absolute; */
+  /* float: left; */
+
 }
 
 .expense-item__description {
